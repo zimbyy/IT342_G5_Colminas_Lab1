@@ -85,18 +85,67 @@
   - Loading spinner animation
   - Commit: `Add styling and animations`
 
+- [x] Spring Security Configuration
+  - SecurityFilterChain bean implementation
+  - CORS configuration for localhost:3000
+  - Public access to /api/auth/** endpoints
+  - CSRF protection disabled for API
+  - Commit: `149e8eb` - Initial commit: ConsultEase backend with Spring Security and React frontend
+
+- [x] User Profile Endpoint
+  - GET /api/auth/me endpoint for fetching user data
+  - User data retrieval by userId
+  - Commit: `c59c34f` - Add GET /api/auth/me endpoint for fetching user profile data
+
+- [x] Frontend Integration
+  - Dashboard correctly calls /api/auth/me endpoint
+  - Full register → login → dashboard → logout flow working
+  - ConsultEase branding added to Login and Register pages
+  - Commit: `c59c34f` and subsequent updates
+
+- [x] Dashboard Enhancement
+  - Full-screen dashboard layout
+  - Consultation request tracking section (placeholder)
+  - User profile information display
+  - Simplified logout button
+  - ConsultEase app title branding
+
 ---
 
 ## IN-PROGRESS 🔄
 
 - [ ] Documentation Updates (FRS - Partial)
-  - Create/Update ERD (Entity Relationship Diagram)
-  - UML Diagrams (Class, Sequence)
-  - Screenshots of UI pages (Register, Login, Dashboard, Logout)
+  - ERD diagram in docs/ERD.md
+  - UML diagrams in docs/UML_DIAGRAMS.md
+  - Screenshots of UI pages (Register, Login, Dashboard)
+  - Update FRS with system diagrams and UI screenshots
 
 ---
 
 ## TODO 📋
+
+- [ ] Consultation Request Features
+  - Student consultation request submission
+  - Teacher request approval/rejection
+  - Request status tracking
+  - Dashboard statistics (pending, approved, rejected)
+
+- [ ] Role-Based Access Control
+  - Student role vs Teacher role distinction
+  - Role-specific endpoints
+  - Role-specific UI views
+
+- [ ] Database Enhancement
+  - Consultation Request entity
+  - Request status enum (PENDING, APPROVED, REJECTED)
+  - User role field
+
+- [ ] API Endpoints (Consultation)
+  - POST /api/consultations - Submit request
+  - GET /api/consultations - Get user's requests
+  - PUT /api/consultations/{id}/approve - Approve request
+  - PUT /api/consultations/{id}/reject - Reject request
+  - GET /api/consultations/pending - Get pending requests (for teachers)
 
 - [ ] Testing
   - Unit tests for AuthService
@@ -106,16 +155,7 @@
 - [ ] Enhanced Security
   - JWT token implementation
   - Token refresh mechanism
-  - CSRF protection
-
-- [ ] Additional Features
-  - Email verification
-  - Password reset functionality
-  - User profile update
-
-- [ ] Database Backup
-  - Create database schema script
-  - Add sample data script
+  - Role-based endpoint protection
 
 - [ ] Deployment
   - Docker containerization for backend
