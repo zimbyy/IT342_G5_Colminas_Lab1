@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import com.it342.backend.dto.AuthResponse;
 import com.it342.backend.dto.LoginRequest;
 import com.it342.backend.dto.RegisterRequest;
+import com.it342.backend.dto.UserDTO;
 import com.it342.backend.model.User;
 import com.it342.backend.service.AuthService;
+import com.it342.backend.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -17,6 +19,9 @@ public class AuthController {
     
     @Autowired
     private AuthService authService;
+    
+    @Autowired
+    private UserRepository userRepository;
     
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
@@ -59,6 +64,18 @@ public class AuthController {
                 null
             );
             return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserDTO> getCurrentUser(@RequestParam Long userId) {
+        try {
+            User user = userRepository.findById(userId)
+                .orElseThrow(() -> new Exception("User not found"));
+            UserDTO userDTO = authService.convertToDTO(user);
+            return ResponseEntity.ok(userDTO);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
         }
     }
 }
