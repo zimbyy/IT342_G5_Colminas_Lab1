@@ -1,0 +1,80 @@
+# Backend - Maven
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.springBeans
+backend/*.log
+backend/*.iml
+backend/.idea/
+
+# Backend - IDE
+backend/.vscode/
+backend/*.swp
+backend/*.swo
+backend/*~
+
+# Frontend - Node
+web/node_modules/
+web/build/
+web/dist/
+web/.next/
+web/out/
+
+# Frontend - IDE
+web/.vscode/
+web/.idea/
+web/*.swp
+web/*.swo
+web/*~
+
+# Frontend - npm
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.env
+web/.env.local
+web/.env.development.local
+web/.env.test.local
+web/.env.production.local
+
+# OS
+.DS_Store
+Thumbs.db
+.directory
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Database
+*.sql
+*.db
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+temp/
+tmp/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Mac
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+ehthumbs.db
+Desktop.ini
