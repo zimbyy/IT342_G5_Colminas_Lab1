@@ -17,7 +17,7 @@ function Dashboard({ onLogout }) {
       }
 
       try {
-        const response = await axios.get(`http://localhost:8080/api/user/me?userId=${userId}`);
+        const response = await axios.get(`http://localhost:8080/api/auth/me?userId=${userId}`);
         setUser(response.data);
       } catch (err) {
         console.error('Error fetching user data:', err);
@@ -52,7 +52,7 @@ function Dashboard({ onLogout }) {
     <div className="dashboard-container">
       <div className="dashboard-content">
         <div className="dashboard-header">
-          <h1>Dashboard</h1>
+          <h1>ConsultEase Dashboard</h1>
           <button className="logout-btn" onClick={handleLogout}>
             Logout
           </button>
@@ -60,18 +60,10 @@ function Dashboard({ onLogout }) {
 
         {user && (
           <div className="profile-section">
-            <h2>👤 Profile Information</h2>
+            <h2>Your Profile</h2>
             <div className="profile-item">
-              <span className="profile-label">ID:</span>
-              <span className="profile-value">{user.id}</span>
-            </div>
-            <div className="profile-item">
-              <span className="profile-label">First Name:</span>
-              <span className="profile-value">{user.firstName}</span>
-            </div>
-            <div className="profile-item">
-              <span className="profile-label">Last Name:</span>
-              <span className="profile-value">{user.lastName}</span>
+              <span className="profile-label">Name:</span>
+              <span className="profile-value">{user.firstName} {user.lastName}</span>
             </div>
             <div className="profile-item">
               <span className="profile-label">Username:</span>
@@ -85,7 +77,27 @@ function Dashboard({ onLogout }) {
         )}
 
         <div className="profile-section">
-          <h2>✅ Account Status</h2>
+          <h2>Consultation Requests</h2>
+          <div className="profile-item">
+            <span className="profile-label">Total Requests:</span>
+            <span className="profile-value">0</span>
+          </div>
+          <div className="profile-item">
+            <span className="profile-label">Pending:</span>
+            <span className="profile-value" style={{ color: '#f39c12' }}>0</span>
+          </div>
+          <div className="profile-item">
+            <span className="profile-label">Approved:</span>
+            <span className="profile-value" style={{ color: '#27ae60' }}>0</span>
+          </div>
+          <div className="profile-item">
+            <span className="profile-label">Rejected:</span>
+            <span className="profile-value" style={{ color: '#e74c3c' }}>0</span>
+          </div>
+        </div>
+
+        <div className="profile-section">
+          <h2>Account Status</h2>
           <div className="profile-item">
             <span className="profile-label">Status:</span>
             <span className="profile-value" style={{ color: '#27ae60' }}>Active</span>

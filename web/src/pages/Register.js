@@ -61,6 +61,7 @@ function Register({ onLoginSuccess }) {
   return (
     <div className="container">
       <div className="card">
+        <h1 className="app-title">ConsultEase</h1>
         <h2 className="title">Create Account</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
